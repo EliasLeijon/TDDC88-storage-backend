@@ -929,6 +929,7 @@ class ArticleToCompartmentByQRcode(APIView):
             if new_article is not None:
                 # Get attributes from payload
                 new_amount = request.data.get("quantity")
+                print(new_amount)
                 new_standard_order_amount = request.data.get(
                     ("normalOrderQuantity"))
                 new_order_point = request.data.get("orderQuantityLevel")
