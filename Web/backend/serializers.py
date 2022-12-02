@@ -233,6 +233,7 @@ class ApiCompartmentSerializer(serializers.ModelSerializer):
 
 
 class StorageSerializer(serializers.ModelSerializer):
+    #id = serializers.CharField(source='name', read_only=True)
     location = LocationSerializer(source='*')
     compartments = ApiCompartmentSerializer(
         source='compartment_set', many=True, read_only=True)

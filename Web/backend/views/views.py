@@ -177,7 +177,7 @@ class Compartments(APIView):
                 self.storage_management_service.get_compartment_by_qr(
                     qr_code))
             if compartment is None:
-                return Http404("Could not find compartment")
+                raise Http404("Could not find compartment")
             else:
                 serializer = ApiCompartmentSerializer(compartment)
                 if serializer.is_valid:
@@ -484,7 +484,7 @@ class AddInputUnit(APIView):
         user = request.user
         if request.method == 'POST':
             if compartment is None:
-                return Http404("Could not find storage space")
+                raise Http404("Could not find storage space")
             StorageManagementService.add_to_storage(self=self,
                                                     id=compartment_id,
                                                     amount=amount,
@@ -549,7 +549,7 @@ class ReturnUnit(APIView):
         user = request.user
         if request.method == 'POST':
             if compartment is None:
-                return Http404("Could not find storage space")
+                raise Http404("Could not find storage space")
             StorageManagementService.add_to_return_storage(
                 self=self,
                 id=compartment_id,

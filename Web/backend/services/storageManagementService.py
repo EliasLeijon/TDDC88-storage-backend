@@ -178,7 +178,7 @@ class StorageManagementService():
         if (amount_in_storage < 0 or Compartment.objects.get(id=id).maximal_capacity < amount_in_storage):
             return None
         else:
-            Compartment.objects.update(amount=amount_in_storage)
+            self.storage_access.set_compartment_amount(id, amount_in_storage)
             new_transaction = Transaction.objects.create(
                 storage=compartment.storage, article=article, attribute_cost_to=cost_center, operation="replenish",
                 by_user=user, amount=amount,

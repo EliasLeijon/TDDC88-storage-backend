@@ -39,11 +39,11 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: 100m
-              memory: 150Mi
+              cpu: 1000m
+              memory: 420Mi
             requests:
-              cpu: 10m
-              memory: 42Mi
+              cpu: 1000m
+              memory: 420Mi
 
       initContainers:
         - name: wait-for-database

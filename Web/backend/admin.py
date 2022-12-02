@@ -23,6 +23,8 @@ admin.site.register(CostCenter)
 
 
 # Displays cost center as an option in the user class
+
+
 class UserInfoInLine(admin.StackedInline):
     model = UserInfo
 
@@ -66,9 +68,6 @@ admin.site.register(Supplier)
 
 class CompartmentInline(admin.TabularInline):
     model = Compartment
-
-
-
 
 
 class AlternativeNameInLine(admin.TabularInline):
