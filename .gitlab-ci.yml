@@ -37,7 +37,7 @@ image-rdx-backend:
   image: docker.io/buildah/buildah
   only:
      - main
-     - dev
+    # - dev
   needs:
      - test-backend
      - yamllint
@@ -82,7 +82,7 @@ deploy-rdx-backend:
 
   only:
     - main
-    - dev
+  #  - dev
 
   needs:
     - deploy-test-k8s-connection
@@ -100,7 +100,7 @@ deploy-postgres:
   image: bitnami/kubectl
   only:
   - main
-  - dev
+ # - dev
   needs:
     - deploy-test-k8s-connection
     - deploy-k8s-regcred
