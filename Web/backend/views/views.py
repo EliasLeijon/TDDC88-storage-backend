@@ -216,7 +216,7 @@ class Compartments(APIView):
             self.storage_management_service.get_compartment_by_qr(qr_code))
 
         if current_compartment is not None:
-
+            
             # Get values from payload
             new_placement = request.data.get("placement")
             new_storage_id = request.data.get("storageId")
@@ -224,11 +224,15 @@ class Compartments(APIView):
             new_standard_order_amount = request.data.get('normalOrderQuantity')
             new_order_point = request.data.get('orderQuantityLevel')
 
-            self.storage_management_service.update_compartment_by_qr(
-                current_compartment, new_placement, new_storage_id, new_amount, new_standard_order_amount, new_order_point)
+            article_in_compartment = self.storage_management_service.get_article_in_compartment(qr_code)
+            if (article_in_compartment is None and new_amount != 0):
+                return Response({'error': 'No article connected to compartment, quantity have to be 0'},
+                            status=status.HTTP_400_BAD_REQUEST)
+            else:
+                self.storage_management_service.update_compartment_by_qr(
+                    current_compartment, new_placement, new_storage_id, new_amount, new_standard_order_amount, new_order_point)
 
-            return JsonResponse(ApiCompartmentSerializer(current_compartment).data, status=200)
-
+                return JsonResponse(ApiCompartmentSerializer(current_compartment).data, status=200)
         else:
             return Response({'error': 'Could not find compartment'},
                             status=status.HTTP_400_BAD_REQUEST)

@@ -159,7 +159,7 @@ class StorageAccess():
             compartment = Compartment(
                 id=qr_code,
                 storage=storage,
-                placement=placement,)
+                placement=placement, maximal_capacity=999)
             compartment.save()
             return compartment
         except Exception:
