@@ -1,5 +1,6 @@
 <div align='center'>
 <h1>Welcome to RDX Solutions</h1>
+<i>"Software so good you have to C4 yourself"</i>
 </div>
 
 ![](rdx.gif)
@@ -47,7 +48,7 @@ python3 manage.py migrate
 ```
 **6.Start Server**
 ```sh
-python manage.py runserver
+python3 manage.py runserver
 ```
 **7.Enter the site and login with provided credentials**
 ```sh
