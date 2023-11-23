@@ -14,7 +14,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 [`Python`](https://www.python.org/downloads/), [`Django`](https://www.djangoproject.com/download/), [`pip`](https://pypi.org/project/pip/)
 
-
 ## Installation and Setup:
 **1.Clone the Repository**
 ```sh
@@ -53,3 +52,5 @@ python manage.py runserver
 ```sh
 http://127.0.0.1:8000/admin/
 ```
+## Architecture and schema is available at 
+https://app.diagrams.net/#G1wfihktfheNB74xuKVK3J80uDa2fYga5N
